@@ -1,0 +1,24 @@
+@import url("./css/css-reset.css");
+@import url("./css/variables.css");
+
+body {
+  background-color: var(--dark-grey);
+  color: var(--neutral-white);
+}
+
+main {
+  min-width: 100vw;
+  min-height: 100vh;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+progress {
+  padding: 1rem;
+}
+
+::-webkit-progress-bar {
+  background-color: red;
+}

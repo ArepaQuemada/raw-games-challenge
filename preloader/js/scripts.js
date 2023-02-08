@@ -1,3 +1,4 @@
+// TODO STYLE THE PROGRESS BAR ACCORDINGLY
 // Set what to be executed on page load
 
 function attach(event) {
