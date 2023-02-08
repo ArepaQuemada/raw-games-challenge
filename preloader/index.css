@@ -6,6 +6,12 @@ body {
   color: var(--neutral-white);
 }
 
+h1 {
+  font-size: 2.5rem;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+}
+
 main {
   min-width: 100vw;
   min-height: 100vh;
@@ -13,12 +19,37 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+
+label {
+  display: block;
+  font-size: 2rem;
+}
+
+label:first-of-type {
+  margin-bottom: 1em;
 }
 
 progress {
-  padding: 1rem;
+  background: var(--light-grey);
+  border-radius: 0.3em;
+  height: 2.5em;
+  min-width: 50vw;
+  opacity: 0.8;
 }
 
-::-webkit-progress-bar {
-  background-color: red;
+progress[value]::-webkit-progress-bar {
+  border-radius: 0.3em;
+  background: var(--background);
+}
+
+progress[value]::-webkit-progress-value {
+  border-radius: 0.3em;
+  background: var(--light-green);
+}
+progress[value]::-moz-progress-bar {
+  border-radius: 0.3em;
+  background: var(--light-green);
+  opacity: 1;
 }

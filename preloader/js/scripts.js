@@ -29,13 +29,13 @@ function receivePostMessage(event) {
 
       switch (messageJSON.msgId) {
         case "preloaderProgress":
-          progressValue.textContent = percentage;
+          progressValue.textContent = `${percentage}%`;
           progress.setAttribute("value", percentage);
           break;
 
         case "preloaderEnd":
           progress.setAttribute("value", progressEnd);
-          progressValue.textContent = progressEnd;
+          progressValue.textContent = `${progressEnd}%`;
 
           window.removeEventListener("message", attach);
           // End preloader and clear listeners
