@@ -21,25 +21,20 @@ function receivePostMessage(event) {
   // Check data from post message. Here we expected receive msgId and percentage from data
   const progress = document.querySelector("#casino-loader");
   const progressValue = document.querySelector("#progress-value");
-  const progressEnd = "100";
   if (event.data) {
     try {
       var messageJSON = event.data;
       const percentage = `${Math.ceil(messageJSON.percentage)}`;
-
       switch (messageJSON.msgId) {
         case "preloaderProgress":
-          progressValue.textContent = `${percentage}%`;
-          progress.setAttribute("value", percentage);
+          updateDom(percentage);
           break;
 
         case "preloaderEnd":
-          progress.setAttribute("value", progressEnd);
-          progressValue.textContent = `${progressEnd}%`;
-
-          window.removeEventListener("message", attach);
           // End preloader and clear listeners
           // Code ...
+          updateDom(percentage);
+          window.removeEventListener("message", attach);
           break;
       }
     } catch (e) {
@@ -47,5 +42,11 @@ function receivePostMessage(event) {
       // Not readable message from the game or error parsing the content as JSON
     }
   }
+
+  function updateDom(percentage) {
+    progressValue.textContent = `${percentage}%`;
+    progress.setAttribute("value", percentage);
+  }
+
   return;
 }
